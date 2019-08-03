@@ -102,7 +102,7 @@ public class LampController : MonoBehaviour
             if(hit.collider.tag == "Enemy")
             {
                 // do damage here
-                var enemyController = hit.collider.transform.gameObject.GetComponent<EnemyController>();
+                var enemyController = hit.collider.transform.parent.gameObject.GetComponent<EnemyController>();
                 enemyController.Damage(dmgRatePerRay*Time.deltaTime);
             }
         }

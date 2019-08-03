@@ -1899,6 +1899,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 954216555}
+    - target: {fileID: 8079465836454723036, guid: 4ba11e9edbc5b37499f7628774142a80,
+        type: 3}
+      propertyPath: health
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 108731459371439432, guid: 4ba11e9edbc5b37499f7628774142a80,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1911,6 +1916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1395351907290123867, guid: 4ba11e9edbc5b37499f7628774142a80, type: 3}
+    - {fileID: 2547600966610515050, guid: 4ba11e9edbc5b37499f7628774142a80, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4ba11e9edbc5b37499f7628774142a80, type: 3}
 --- !u!1 &1762372662
 GameObject:

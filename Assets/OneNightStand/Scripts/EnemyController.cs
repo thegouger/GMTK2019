@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
 
     public GameObject player;
 
+    private bool isDead = false;
+
     void Start()
     {
     }
@@ -27,16 +29,23 @@ public class EnemyController : MonoBehaviour
 
     public void Damage(float dmg) {
         health -= dmg;
-        Debug.Log("Enemy dmg");
         if (health <= 0) {
-            //Die();
+            Die();
         }
     }
 
     public void GiveDamage(BatteryController controller) {
-        controller.TakeDamage(damage);
+        if(!isDead)
+        {
+            controller.TakeDamage(damage);
+        }
     }
 
     // Each individual needs to implement their own death due to animation.
-    //internal abstract void Die();
+    private void Die()
+    {
+        isDead = true;
+        GetComponent<Pathfinding.AIPath>().canMove = false;
+        GetComponent<Animator>().SetBool("isDead", true);
+    }
 }
