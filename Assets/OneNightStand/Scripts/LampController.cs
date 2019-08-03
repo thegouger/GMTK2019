@@ -36,10 +36,12 @@ public class LampController : MonoBehaviour
         if (Math.Abs(focus) > m_InputBufferLimit) {
             focusing = 1;
             spotAngle += spotAngleChangeRate * Time.deltaTime;
+            spotAngle = Mathf.Clamp(spotAngle, minSpotAngle, maxSpotAngle);
             attachedLight.spotAngle = spotAngle;
         } else if (Math.Abs(expand) > m_InputBufferLimit) {
             focusing = -1;
             spotAngle -= spotAngleChangeRate * Time.deltaTime;
+            spotAngle = Mathf.Clamp(spotAngle, minSpotAngle, maxSpotAngle);
             attachedLight.spotAngle = spotAngle;
         }
         Shine(focusing, lit);
