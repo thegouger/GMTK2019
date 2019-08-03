@@ -32,18 +32,8 @@ namespace UnityStandardAssets._2D
             // Read the inputs.
             int h = getDiscreteValue(CrossPlatformInputManager.GetAxisRaw("Horizontal"));
             int v = getDiscreteValue(CrossPlatformInputManager.GetAxisRaw("Vertical"));
-            float focus = CrossPlatformInputManager.GetAxisRaw("Fire1");
-            float expand = CrossPlatformInputManager.GetAxisRaw("Fire2");
 
-            int focusing = 0;
-            if (Math.Abs(focus) < m_InputBufferLimit) {
-                focusing = 1;
-            } else if (Math.Abs(expand) < m_InputBufferLimit) {
-                focusing = -1;
-            }
-
-            m_Character.Move(h, v, focusing);
-            m_Jump = false;
+            m_Character.Move(h, v);
         }
 
         private int getDiscreteValue(float val) {
