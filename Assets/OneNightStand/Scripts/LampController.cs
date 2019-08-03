@@ -10,6 +10,9 @@ public class LampController : MonoBehaviour
 
     private bool isLit = false;
 
+    public Light attachedLight;
+    private float spotAngle = 0.0f;
+
     void Start()
     {
         batteryController = gameObject.GetComponent<BatteryController>();
@@ -25,10 +28,12 @@ public class LampController : MonoBehaviour
         bool lit = Math.Abs(litAsFloat) >= m_InputBufferLimit;
 
         int focusing = 0;
-        if (Math.Abs(focus) < m_InputBufferLimit) {
+        if (Math.Abs(focus) > m_InputBufferLimit) {
             focusing = 1;
-        } else if (Math.Abs(expand) < m_InputBufferLimit) {
+            attachedLight.spotAngle += 0.5f;
+        } else if (Math.Abs(expand) > m_InputBufferLimit) {
             focusing = -1;
+            attachedLight.spotAngle -= 0.5f;
         }
         Shine(focusing, lit);
     }
@@ -37,6 +42,7 @@ public class LampController : MonoBehaviour
         if (isLit != this.isLit) {
             this.isLit = isLit;
             batteryController.setDischarging(isLit);
+            attachedLight.enabled = isLit;
         }
     }
 }
