@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - 
   - 
   - 
+  - Ground
   - 
-  - 
-  - 
+  - Obstacles
   - 
   - 
   - 
