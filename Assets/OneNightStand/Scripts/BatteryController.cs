@@ -21,6 +21,8 @@ public class BatteryController : MonoBehaviour
         float chargeAmount = isCharging ? Time.deltaTime * batteryChargeRate : 0;
         float newCharge = currentBattery + chargeAmount - dischargeAmount;
         currentBattery = Mathf.Clamp(newCharge, 0, maxBattery);
+
+        Debug.Log(currentBattery);
     }
 
     public void setDischarging(bool isDischarging) {
