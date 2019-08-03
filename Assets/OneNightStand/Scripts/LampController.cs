@@ -12,11 +12,16 @@ public class LampController : MonoBehaviour
 
     public Light attachedLight;
     private float spotAngle = 0.0f;
+    [SerializeField] private float maxSpotAngle = 60.0f;
+    [SerializeField] private float minSpotAngle = 20.0f;
+    [SerializeField] private float spotAngleChangeRate = 15.0f; // deg / s
 
     void Start()
     {
         batteryController = gameObject.GetComponent<BatteryController>();
         batteryController.setDischarging(false);
+
+        spotAngle = (maxSpotAngle + minSpotAngle) / 2.0f;
     }
 
     // Update is called once per frame
@@ -30,10 +35,12 @@ public class LampController : MonoBehaviour
         int focusing = 0;
         if (Math.Abs(focus) > m_InputBufferLimit) {
             focusing = 1;
-            attachedLight.spotAngle += 0.5f;
+            spotAngle += spotAngleChangeRate * Time.deltaTime;
+            attachedLight.spotAngle = spotAngle;
         } else if (Math.Abs(expand) > m_InputBufferLimit) {
             focusing = -1;
-            attachedLight.spotAngle -= 0.5f;
+            spotAngle -= spotAngleChangeRate * Time.deltaTime;
+            attachedLight.spotAngle = spotAngle;
         }
         Shine(focusing, lit);
     }

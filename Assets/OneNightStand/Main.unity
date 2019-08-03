@@ -2656,6 +2656,11 @@ PrefabInstance:
       propertyPath: attachedLight
       value: 
       objectReference: {fileID: 971536128}
+    - target: {fileID: 5559547984204975473, guid: f012a5d1cf284427d872a8ceceff3e9a,
+        type: 3}
+      propertyPath: spotAngleChangeRate
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2505920936232236318, guid: f012a5d1cf284427d872a8ceceff3e9a,
         type: 3}
       propertyPath: m_LocalScale.x
