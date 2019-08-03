@@ -6,6 +6,7 @@ public class PlatformerCharacter2D : MonoBehaviour
 {
     [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
     [SerializeField] private GameObject lamp;
+    [SerializeField] private GameObject deskClutter;
 
     
     private Animator m_Anim;            // Reference to the player's animator component.
@@ -21,9 +22,12 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // death testing
+    }
 
-
+    private void animateDeath()
+    {
+        m_Anim.SetBool("isDead", true);
+        deskClutter.GetComponent<Animator>().SetBool("isDead", true);
     }
 
     public void Move(float hMove, float vMove)
