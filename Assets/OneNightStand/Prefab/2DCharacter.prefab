@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4915590}
   - component: {fileID: 4915589}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: battery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509985885}
   - component: {fileID: 509985884}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: deskClutter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 971536127}
   - component: {fileID: 971536128}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,9 @@ GameObject:
   - component: {fileID: 5559547984204975480}
   - component: {fileID: 5559547984204975484}
   - component: {fileID: 5559547984204975473}
-  m_Layer: 0
+  - component: {fileID: 1781865807114070353}
+  - component: {fileID: 386703940}
+  m_Layer: 18
   m_Name: 2DCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -283,7 +285,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5559547984204975481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.268, y: 8.9814, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.7715329, y: 1.7715304, z: 1}
   m_Children:
   - {fileID: 5559547984705017517}
@@ -395,8 +397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 10
+  m_MaxSpeed: 13
   lamp: {fileID: 8328428816624159096}
+  deskClutter: {fileID: 0}
 --- !u!114 &5559547984204975487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +454,8 @@ MonoBehaviour:
   currentBattery: 50
   batteryDischargeRate: 2
   batteryChargeRate: 10
+  pushBackForce: 10
+  invulnPeriod: 1.5
 --- !u!114 &5559547984204975473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,6 +469,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedLight: {fileID: 971536128}
+  maxSpotAngle: 60
+  minSpotAngle: 20
+  spotAngleChangeRate: 15
+  rayConeSteps: 10
+  rayDist: 20
+--- !u!70 &1781865807114070353
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559547984204975481}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.26, y: -1.89}
+  m_Size: {x: 0.38, y: 0.83}
+  m_Direction: 0
+--- !u!70 &386703940
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559547984204975481}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.26, y: -1.89}
+  m_Size: {x: 0.38, y: 0.83}
+  m_Direction: 0
 --- !u!1 &5559547984705017518
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5559547984705017517}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -503,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5559547985387192908}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: -2065832391, guid: 0000000000000000d000000000000000, type: 0}
@@ -547,6 +589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323868625298370984, guid: c436c17245848451fb9a70b99ca2e6c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4625582620666376059, guid: c436c17245848451fb9a70b99ca2e6c9,
         type: 3}
@@ -623,17 +670,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.75
       objectReference: {fileID: 0}
+    - target: {fileID: 490564771745517658, guid: c436c17245848451fb9a70b99ca2e6c9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 3934973707349583796, guid: c436c17245848451fb9a70b99ca2e6c9,
         type: 3}
       propertyPath: m_SortingOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 3934973707349583796, guid: c436c17245848451fb9a70b99ca2e6c9,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: bce09020dc51aab45a3c6f0eb0d5ef91,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c436c17245848451fb9a70b99ca2e6c9, type: 3}
 --- !u!1 &8328428816624159096 stripped
