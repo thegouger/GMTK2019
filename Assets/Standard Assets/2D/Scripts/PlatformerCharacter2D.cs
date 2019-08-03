@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformerCharacter2D : MonoBehaviour
 {
     [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
-    [SerializeField] private GameObject lamp; 
+    [SerializeField] private GameObject lamp;
 
     
     private Animator m_Anim;            // Reference to the player's animator component.
@@ -21,6 +21,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // death testing
+
 
     }
 
