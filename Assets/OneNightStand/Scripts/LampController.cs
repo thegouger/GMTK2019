@@ -16,6 +16,8 @@ public class LampController : MonoBehaviour
     [SerializeField] private float minSpotAngle = 20.0f;
     [SerializeField] private float spotAngleChangeRate = 15.0f; // deg / s
 
+    [SerializeField] private int rayConeSteps = 10; // deg / s
+
     void Start()
     {
         batteryController = gameObject.GetComponent<BatteryController>();
@@ -45,6 +47,7 @@ public class LampController : MonoBehaviour
             attachedLight.spotAngle = spotAngle;
         }
         Shine(focusing, lit);
+        castLightRays();
     }
 
     private void Shine(int focus, bool isLit) {
@@ -53,5 +56,26 @@ public class LampController : MonoBehaviour
             batteryController.setDischarging(isLit);
             attachedLight.enabled = isLit;
         }
+    }
+
+    private void castLightRays()
+    {
+        var forward = attachedLight.transform.forward;
+        var origin = attachedLight.transform.position;
+        for(int rayIdx = 0; rayIdx < rayConeSteps; rayIdx++)
+        {
+            
+            var angle = (maxSpotAngle - minSpotAngle) / (rayConeSteps * 2) * rayIdx;
+            var rayDirPos = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f)) * forward;
+            var rayDirNeg = Quaternion.AngleAxis(-angle, new Vector3(0f, 0f, 1f)) * forward;
+
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, forward);
+            Debug.DrawRay(origin, 100*rayDirPos, Color.green);
+            Debug.DrawRay(origin, 100*rayDirNeg, Color.green);
+
+        }
+        
+
+
     }
 }
