@@ -34,6 +34,13 @@ namespace Pathfinding {
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
 			if (target != null && ai != null) ai.destination = target.position;
+
+			var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+			
+			var dir = target.position - transform.position;
+			float direction = Vector3.Dot(dir, new Vector2(1.0f, 0.0f));
+
+			spriteRenderer.flipX = direction > 0 ? true : false;
 		}
 	}
 }

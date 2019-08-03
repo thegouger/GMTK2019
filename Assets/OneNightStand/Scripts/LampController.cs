@@ -17,7 +17,10 @@ public class LampController : MonoBehaviour
     [SerializeField] private float spotAngleChangeRate = 15.0f; // deg / s
 
     [SerializeField] private int rayConeSteps = 10;
-    [SerializeField] private float rayDist = 20; // deg / s
+    [SerializeField] private float rayDist = 20;
+    [SerializeField] private float dmgRatePerRay = 1.0f;
+
+    public LayerMask includeInRaycastMask;
 
     void Start()
     {
@@ -60,12 +63,13 @@ public class LampController : MonoBehaviour
             this.isLit = isLit;
             batteryController.setDischarging(isLit);
             attachedLight.enabled = isLit;
+        }
 
-            if(isLit)
-            {
-                // cast rays to damage enemies
-                castLightRays();
-            }
+        castLightRays();
+        if(isLit)
+        {
+            // cast rays to damage enemies
+            castLightRays();
         }
     }
 
@@ -80,12 +84,12 @@ public class LampController : MonoBehaviour
             var rayDirPos = Quaternion.AngleAxis(angle, new Vector3(0f, 0f, 1f)) * forward;
             var rayDirNeg = Quaternion.AngleAxis(-angle, new Vector3(0f, 0f, 1f)) * forward;
 
-            RaycastHit2D hitPos = Physics2D.Raycast(origin, rayDirPos, rayDist);
+            RaycastHit2D hitPos = Physics2D.Raycast(origin, rayDirPos, rayDist, includeInRaycastMask);
             Debug.DrawRay(origin, rayDist*rayDirPos, Color.green);
             potentiallyDoDamage(hitPos);
 
 
-            RaycastHit2D hitNeg = Physics2D.Raycast(origin, rayDirPos, rayDist);
+            RaycastHit2D hitNeg = Physics2D.Raycast(origin, rayDirPos, rayDist, includeInRaycastMask);
             Debug.DrawRay(origin, rayDist*rayDirNeg, Color.green);
             potentiallyDoDamage(hitNeg);
         }
@@ -98,6 +102,8 @@ public class LampController : MonoBehaviour
             if(hit.collider.tag == "Enemy")
             {
                 // do damage here
+                var enemyController = hit.collider.transform.gameObject.GetComponent<EnemyController>();
+                enemyController.Damage(dmgRatePerRay*Time.deltaTime);
             }
         }
         

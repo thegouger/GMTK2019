@@ -5,8 +5,10 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] internal int health = 1000;
-    [SerializeField] internal int damage = 10;
+    [SerializeField] internal float health = 1000;
+    [SerializeField] internal float damage = 10;
+
+    public GameObject player;
 
     void Start()
     {
@@ -14,10 +16,18 @@ public class EnemyController : MonoBehaviour
     
     void Update()
     {
+        var center = transform.Find("Center");
+        if((player.transform.position - center.transform.position).magnitude < 5)
+        {
+            //Debug.Log("Damaging player");
+            var batteryController = player.GetComponent<BatteryController>();
+            GiveDamage(batteryController);
+        }
     }
 
-    public void Damage(int dmg) {
+    public void Damage(float dmg) {
         health -= dmg;
+        Debug.Log("Enemy dmg");
         if (health <= 0) {
             //Die();
         }
@@ -25,14 +35,6 @@ public class EnemyController : MonoBehaviour
 
     public void GiveDamage(BatteryController controller) {
         controller.TakeDamage(damage);
-    }
-
-    public void OnControllerColliderHit(ControllerColliderHit hit) {
-        Debug.Log("Controller HIT");
-        if (hit.gameObject.tag == "Player") {
-            BatteryController controller = hit.gameObject.GetComponent<BatteryController>();
-            controller.TakeDamage(gameObject, damage);
-        }
     }
 
     // Each individual needs to implement their own death due to animation.

@@ -25,7 +25,7 @@ public class BatteryController : MonoBehaviour
         float newCharge = currentBattery + chargeAmount - dischargeAmount;
         currentBattery = Mathf.Clamp(newCharge, 0, maxBattery);
 
-        Debug.Log("Battery: " + currentBattery);
+        // Debug.Log("Battery: " + currentBattery);
     }
 
     public void setDischarging(bool isDischarging) {
@@ -40,7 +40,7 @@ public class BatteryController : MonoBehaviour
         return System.Math.Abs(currentBattery) < isEmptyBuffer;
     }
 
-    public void TakeDamage(GameObject enemy, int damage) {
+    public void TakeDamage(GameObject enemy, float damage) {
         //if (collision.gameObject.tag == "Enemy") {
         //    Vector2 closestPosition = collision.collider.ClosestPoint(transform.position);
         //    Vector2 pushVector = new Vector2(transform.position.x, transform.position.y) - closestPosition;
@@ -54,7 +54,7 @@ public class BatteryController : MonoBehaviour
         //}   
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(float damage) {
         currentBattery -= damage;
         if (currentBattery <= 0) {
             Die();
