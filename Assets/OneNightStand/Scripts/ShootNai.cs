@@ -12,6 +12,8 @@ public class ShootNai : MonoBehaviour
 
     private float timeAccum = 0.0f;
 
+    public AudioClip shootAudio;
+
     private GameObject player;
 
     // Start is called before the first frame update
@@ -23,7 +25,7 @@ public class ShootNai : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeAccum < 1.0f/fireRate)
+        if(timeAccum < 1.0f/fireRate + Random.Range(0, 0.5f/fireRate))
         {
             timeAccum += Time.deltaTime;
         }
@@ -43,6 +45,8 @@ public class ShootNai : MonoBehaviour
             GameObject clone = (GameObject)Instantiate(nailProjectile, transform.position, Quaternion.identity);
             clone.transform.right = -dir;
             clone.GetComponent<Rigidbody2D>().velocity = (dir * fireSpeed);
+
+            GetComponent<AudioSource>().PlayOneShot(shootAudio);
         }
     }
 }
