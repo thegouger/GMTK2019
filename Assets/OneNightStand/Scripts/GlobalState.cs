@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalState {
 
-    public static float currentBattery = 50f;
+    public static float currentBattery = 100f;
     public static bool[] generators = {false, false, false, false, false};
     public static int killCount = 0;
 
