@@ -70,5 +70,6 @@ public class EnemyController : MonoBehaviour
         center.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
 
         GetComponent<Animator>().SetBool("isDead", true);
+        GlobalState.killCount++;
     }
 }

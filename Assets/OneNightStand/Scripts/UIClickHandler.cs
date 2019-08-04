@@ -5,22 +5,19 @@ using UnityEngine.SceneManagement;
 public class UIClickHandler : MonoBehaviour
 {
 
-    private GameObject buttonContainer;
-    private GameObject controlsImg;
-
-    void Start() {
-        buttonContainer = transform.Find("ButtonContainer").gameObject;
-        controlsImg = transform.Find("ControlsImage").gameObject;
-    }
-
     public void OnGameStartClick() {
         Debug.Log("Game start");
+        GlobalState.Reset();
+        //Time.timeScale = 1;
         SceneManager.LoadScene("Bedroom", LoadSceneMode.Single);
     }
 
     public void OnControlsClick() {
         Debug.Log("Controls Clicked");
+        GameObject buttonContainer = transform.Find("ButtonContainer").gameObject;
         buttonContainer.SetActive(false);
+
+        GameObject controlsImg = transform.Find("ControlsImage").gameObject;
         controlsImg.SetActive(true);
     }
 
@@ -31,7 +28,10 @@ public class UIClickHandler : MonoBehaviour
 
     public void OnMenuReturnClick() {
         Debug.Log("Menu Return Clicked");
+        GameObject buttonContainer = transform.Find("ButtonContainer").gameObject;
         buttonContainer.SetActive(true);
+
+        GameObject controlsImg = transform.Find("ControlsImage").gameObject;
         controlsImg.SetActive(false);
     }
 }

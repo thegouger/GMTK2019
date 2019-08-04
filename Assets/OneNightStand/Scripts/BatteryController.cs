@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BatteryController : MonoBehaviour
 {
@@ -9,14 +10,18 @@ public class BatteryController : MonoBehaviour
 
     [SerializeField] private float batteryDischargeRate = 2f;
     [SerializeField] private float batteryChargeRate = 10f;
+    [SerializeField] private GameObject deathOverlay; 
 
     private bool isCharging = false;
     private bool isDischarging = false;
     private float isEmptyBuffer = 0.1f;
+    private bool hasDied;
 
     private void Start() {
+        GlobalState.Reset();
         currentBattery = GlobalState.currentBattery;
         Debug.Log("Battery: " + currentBattery);
+        hasDied = false;
     }
 
     // Update is called once per frame
@@ -43,12 +48,21 @@ public class BatteryController : MonoBehaviour
     public void TakeDamage(float damage) {
         currentBattery -= damage;
         Debug.Log("Player taking dmg");
-        if (currentBattery <= 0) {
+        if (currentBattery <= 0 && !hasDied) {
+            hasDied = true;
             Die();
         }
     }
 
     private void Die() {
         gameObject.GetComponent<PlatformerCharacter2D>().animateDeath();
+
+        // Pause game
+        Time.timeScale = 0;
+
+        // show canvas
+        Text deathText = deathOverlay.GetComponentInChildren<Text>();
+        deathText.text = GlobalState.killCount.ToString();
+        deathOverlay.SetActive(true);
     }
 }

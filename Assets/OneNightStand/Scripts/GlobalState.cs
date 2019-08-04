@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
+
 public class GlobalState {
 
     public static float currentBattery = 50f;
     public static bool[] generators = {false, false, false, false, false};
+    public static int killCount = 0;
 
-    public void Reset() {
+    public static void Reset() {
+        killCount = 0;
         currentBattery = 100f;
         for (int i = 0; i < 5; i++) {
             generators[i] = false;
         }
+        Time.timeScale = 1;
     }
 }

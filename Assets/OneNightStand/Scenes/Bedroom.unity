@@ -17902,6 +17902,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e94577f16f9ed482bba29168bcefaec1, type: 3}
+--- !u!1 &370114519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3536191956637576813, guid: e94577f16f9ed482bba29168bcefaec1,
+    type: 3}
+  m_PrefabInstance: {fileID: 365495003}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &379698555
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18895,6 +18901,11 @@ PrefabInstance:
       propertyPath: currentBattery
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5559547984204975484, guid: f012a5d1cf284427d872a8ceceff3e9a,
+        type: 3}
+      propertyPath: deathOverlay
+      value: 
+      objectReference: {fileID: 370114519}
     - target: {fileID: 5559547984204975473, guid: f012a5d1cf284427d872a8ceceff3e9a,
         type: 3}
       propertyPath: includeInRaycastMask.m_Bits
