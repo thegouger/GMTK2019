@@ -814,28 +814,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 767145536}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &840970851 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1047759207390467188, guid: 379db72e155b88348845ea0cb2b514b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 938640763}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &840970852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 840970851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c34307657fd754ea3005dfcbe174b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nailProjectile: {fileID: 8621255782445495350, guid: 080c37b0a97ca5442b34ef54dad70cec,
-    type: 3}
-  fireRate: 1
-  fireSpeed: 20
 --- !u!1 &847128929
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,15 +968,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hammond
       objectReference: {fileID: 0}
-    - target: {fileID: 1047759207390467188, guid: 379db72e155b88348845ea0cb2b514b9,
-        type: 3}
-      propertyPath: m_Layer
-      value: 19
-      objectReference: {fileID: 0}
     - target: {fileID: 1047759207390467184, guid: 379db72e155b88348845ea0cb2b514b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.28481
+      value: 47.22
       objectReference: {fileID: 0}
     - target: {fileID: 1047759207390467184, guid: 379db72e155b88348845ea0cb2b514b9,
         type: 3}
@@ -1008,7 +981,7 @@ PrefabInstance:
     - target: {fileID: 1047759207390467184, guid: 379db72e155b88348845ea0cb2b514b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.123402
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1047759207390467184, guid: 379db72e155b88348845ea0cb2b514b9,
         type: 3}
@@ -1060,11 +1033,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 278730289}
-    - target: {fileID: 36057194058178891, guid: 379db72e155b88348845ea0cb2b514b9,
-        type: 3}
-      propertyPath: m_Layer
-      value: 19
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 379db72e155b88348845ea0cb2b514b9, type: 3}
 --- !u!1001 &995250562

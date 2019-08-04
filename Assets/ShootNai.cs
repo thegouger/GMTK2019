@@ -35,9 +35,14 @@ public class ShootNai : MonoBehaviour
     }
 
     void Shoot() {
-        var dir = (player.transform.position - transform.position).normalized;
-        GameObject clone = (GameObject)Instantiate(nailProjectile, transform.position, Quaternion.identity);
-        clone.transform.right = -dir;
-        clone.GetComponent<Rigidbody2D>().velocity = (dir * fireSpeed);
+        var health = GetComponent<EnemyController>().health;
+
+        if(health > 0.0f)
+        {
+            var dir = (player.transform.position - transform.position).normalized;
+            GameObject clone = (GameObject)Instantiate(nailProjectile, transform.position, Quaternion.identity);
+            clone.transform.right = -dir;
+            clone.GetComponent<Rigidbody2D>().velocity = (dir * fireSpeed);
+        }
     }
 }
