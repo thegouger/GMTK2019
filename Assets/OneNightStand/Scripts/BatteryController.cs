@@ -33,15 +33,20 @@ public class BatteryController : MonoBehaviour
         GlobalState.currentBattery = currentBattery;
     }
 
-    public void setDischarging(bool isDischarging) {
+    public bool toggle() {
+        isDischarging = !isDischarging;
+        return isDischarging;
+    }
+
+    public void SetDischarging(bool isDischarging) {
         this.isDischarging = isDischarging;
     }
 
-    public void setCharging(bool isCharging){
+    public void SetCharging(bool isCharging){
         this.isCharging = isCharging;
     }
 
-    public bool isEmpty() {
+    public bool IsEmpty() {
         return System.Math.Abs(currentBattery) < isEmptyBuffer;
     }
 

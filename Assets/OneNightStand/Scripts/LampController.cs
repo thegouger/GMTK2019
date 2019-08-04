@@ -25,7 +25,7 @@ public class LampController : MonoBehaviour
     void Start()
     {
         batteryController = gameObject.GetComponent<BatteryController>();
-        batteryController.setDischarging(false);
+        batteryController.SetDischarging(false);
 
         spotAngle = (maxSpotAngle + minSpotAngle) / 2.0f;
         attachedLight.spotAngle = spotAngle;
@@ -37,8 +37,10 @@ public class LampController : MonoBehaviour
     {
         float focus = CrossPlatformInputManager.GetAxisRaw("Fire1");
         float expand = CrossPlatformInputManager.GetAxisRaw("Fire2");
-        float litAsFloat = CrossPlatformInputManager.GetAxisRaw("Jump");
-        bool lit = Math.Abs(litAsFloat) >= m_InputBufferLimit;
+        bool lit = CrossPlatformInputManager.GetButtonDown("Jump");
+        if (lit) {
+            isLit = batteryController.toggle();
+        }
 
         int focusing = 0;
         if (Math.Abs(focus) > m_InputBufferLimit) {
@@ -56,25 +58,17 @@ public class LampController : MonoBehaviour
             spotAngle = Mathf.Clamp(spotAngle, minSpotAngle, maxSpotAngle);
             attachedLight.spotAngle = spotAngle;
         }
-        Shine(focusing, lit);
+        Shine(focusing);
     }
 
-    private void Shine(int focus, bool isLit) {
-        if (isLit != this.isLit) {
-            this.isLit = isLit;
-            batteryController.setDischarging(isLit);
-            attachedLight.enabled = isLit;
-        }
-
-        castLightRays();
-        if(isLit)
-        {
-            // cast rays to damage enemies
-            castLightRays();
+    private void Shine(int focus) {
+        attachedLight.enabled = isLit;
+        if(isLit) {
+            CastLightRays();
         }
     }
 
-    private void castLightRays()
+    private void CastLightRays()
     {
         var forward = attachedLight.transform.forward;
         var origin = attachedLight.transform.position;
@@ -87,16 +81,16 @@ public class LampController : MonoBehaviour
 
             RaycastHit2D hitPos = Physics2D.Raycast(origin, rayDirPos, rayDist, includeInRaycastMask);
             Debug.DrawRay(origin, rayDist*rayDirPos, Color.green);
-            potentiallyDoDamage(hitPos);
+            PotentiallyDoDamage(hitPos);
 
 
             RaycastHit2D hitNeg = Physics2D.Raycast(origin, rayDirPos, rayDist, includeInRaycastMask);
             Debug.DrawRay(origin, rayDist*rayDirNeg, Color.green);
-            potentiallyDoDamage(hitNeg);
+            PotentiallyDoDamage(hitNeg);
         }
     }
 
-    private void potentiallyDoDamage(RaycastHit2D hit)
+    private void PotentiallyDoDamage(RaycastHit2D hit)
     {
         if(hit.collider != null)
         {
