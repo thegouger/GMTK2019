@@ -71,5 +71,6 @@ public class EnemyController : MonoBehaviour
 
         GetComponent<Animator>().SetBool("isDead", true);
         GlobalState.killCount++;
+        GlobalState.currentSpawn--;
     }
 }
