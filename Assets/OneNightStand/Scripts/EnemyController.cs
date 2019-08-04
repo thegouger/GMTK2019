@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] internal float health = 1000;
+    public float health = 1000;
     [SerializeField] internal float damageRate = 10;
 
     public GameObject player;

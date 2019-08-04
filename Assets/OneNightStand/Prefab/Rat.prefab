@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36057194058178891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.42, y: -1.26, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.03, z: 0}
   m_LocalScale: {x: 2.8066387, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1047759207390467184}
@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 1047759207390467191}
   - component: {fileID: 920928778635612853}
   - component: {fileID: 8079465836454723036}
+  - component: {fileID: 3368251455960484302}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Enemy
@@ -274,3 +275,15 @@ MonoBehaviour:
   health: 100
   damageRate: 10
   player: {fileID: 0}
+--- !u!114 &3368251455960484302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1047759207390467188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db4d66d21f486740b51b24c7b119833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

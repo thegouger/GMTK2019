@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 242965911736463089}
   - component: {fileID: 588639105953177706}
   - component: {fileID: 6222301438534416976}
+  - component: {fileID: -8920553676220481775}
   m_Layer: 19
   m_Name: Turtle
   m_TagString: Enemy
@@ -111,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44b454142d6c348539177318964e0404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  newDirectionDelay: 3
 --- !u!50 &588639105953177706
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +151,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.98
+--- !u!114 &-8920553676220481775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754217492856768423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db4d66d21f486740b51b24c7b119833, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
