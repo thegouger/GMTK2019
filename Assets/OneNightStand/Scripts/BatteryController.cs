@@ -18,7 +18,7 @@ public class BatteryController : MonoBehaviour
     private bool hasDied;
 
     private void Start() {
-        GlobalState.Reset();
+        Time.timeScale = 1;
         currentBattery = GlobalState.currentBattery;
         Debug.Log("Battery: " + currentBattery);
         hasDied = false;
