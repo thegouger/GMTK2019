@@ -4,14 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class UIClickHandler : MonoBehaviour
 {
+
+    private GameObject buttonContainer;
+    private GameObject controlsImg;
+
+    void Start() {
+        buttonContainer = transform.Find("ButtonContainer").gameObject;
+        controlsImg = transform.Find("ControlsImage").gameObject;
+    }
+
     public void OnGameStartClick() {
         Debug.Log("Game start");
-        //TODO: Start first level
+        SceneManager.LoadScene("Bedroom", LoadSceneMode.Single);
     }
 
     public void OnControlsClick() {
         Debug.Log("Controls Clicked");
-        SceneManager.LoadScene("ControlsScreen", LoadSceneMode.Single);
+        buttonContainer.SetActive(false);
+        controlsImg.SetActive(true);
     }
 
     public void OnExitClick() {
@@ -21,6 +31,7 @@ public class UIClickHandler : MonoBehaviour
 
     public void OnMenuReturnClick() {
         Debug.Log("Menu Return Clicked");
-        //TODO: Launch main menu
+        buttonContainer.SetActive(true);
+        controlsImg.SetActive(false);
     }
 }

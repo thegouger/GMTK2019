@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/OneNightStand/Scenes/StartScreen.unity
+    guid: cbb8dac46460c4c6eb4018c52976dda5
+  - enabled: 1
+    path: Assets/OneNightStand/Scenes/Basement.unity
+    guid: e9a5d63900657413d807f09a80174282
+  - enabled: 1
+    path: Assets/OneNightStand/Scenes/Bedroom.unity
+    guid: bf0b000444a860c498e58de252d86041
   m_configObjects: {}
