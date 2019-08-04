@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 242965911736463089}
   - component: {fileID: -8920553676220481775}
   - component: {fileID: 288624103208765017}
+  - component: {fileID: -1985130345421456474}
   m_Layer: 19
   m_Name: Turtle
   m_TagString: Enemy
@@ -147,6 +148,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-1985130345421456474
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754217492856768423}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a0ae631502cd6cd40810ad6b80189bd0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6168601864561213913
 GameObject:
   m_ObjectHideFlags: 0
