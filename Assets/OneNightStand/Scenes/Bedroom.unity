@@ -17890,7 +17890,7 @@ MonoBehaviour:
   waitInSeconds: 8
   rat: {fileID: 1047759207390467188, guid: 4ba11e9edbc5b37499f7628774142a80, type: 3}
   hammond: {fileID: 1047759207390467188, guid: 379db72e155b88348845ea0cb2b514b9, type: 3}
-  delay: 10
+  delay: 5
 --- !u!4 &397047910
 Transform:
   m_ObjectHideFlags: 0
@@ -17899,7 +17899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397047908}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -144.84953, y: 40.41496, z: 0}
+  m_LocalPosition: {x: -174.8, y: 72.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

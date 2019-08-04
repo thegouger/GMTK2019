@@ -10,22 +10,23 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject hammond;
     [SerializeField] private float delay;
 
+    private float timeAccum = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DelaySpawn(delay));
-        SpawnCheck();
+        
     }
 
-    private IEnumerator DelaySpawn(float wait) {
-        yield return new WaitForSeconds(Random.value * wait + delay);
-    }
-
-    private void SpawnCheck() {
+    private void Update() {
         if (GlobalState.currentSpawn < GlobalState.spawnMax) {
-            Spawn();
-            DelaySpawn(waitInSeconds);
-            SpawnCheck();
+            timeAccum += Time.deltaTime;
+            if(timeAccum > (delay + Random.Range(0, delay)))
+            {
+                Debug.Log("Spawning");
+                timeAccum = 0.0f;
+                Spawn();
+            }
         }
     }
 
