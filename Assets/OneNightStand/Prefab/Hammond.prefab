@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 36057194058178891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: -0.03, z: 0}
-  m_LocalScale: {x: 2.8066387, y: 1, z: 1}
+  m_LocalScale: {x: 1.6832255, y: 1.7762, z: 1}
   m_Children: []
   m_Father: {fileID: 1047759207390467184}
   m_RootOrder: 0
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 8079465836454723036}
   - component: {fileID: 3368251455960484302}
   m_Layer: 19
-  m_Name: Rat
+  m_Name: Hammond
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93d381b9343aa214889287c19f7ad0c7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 728be832b6709274995dfaa6ee6edd70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -251,7 +251,7 @@ Animator:
   m_GameObject: {fileID: 1047759207390467188}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: edc487d0f16028146b7ba5b48b9ae610, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0c9bb3ef895e73e4b80a57fe9e3f40dd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
