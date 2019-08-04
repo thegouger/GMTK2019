@@ -5,27 +5,27 @@ using UnityEngine;
 public class BatteryController : MonoBehaviour
 {
     [SerializeField] private float maxBattery = 100f;
-    public float currentBattery = 100f;
+    public float currentBattery;
 
     [SerializeField] private float batteryDischargeRate = 2f;
     [SerializeField] private float batteryChargeRate = 10f;
-    [SerializeField] private float pushBackForce = 10f;
-    [SerializeField] private float invulnPeriod = 1.5f;
 
     private bool isCharging = false;
     private bool isDischarging = false;
-    private bool isInvulnerable = false;
     private float isEmptyBuffer = 0.1f;
 
+    private void Start() {
+        currentBattery = GlobalState.currentBattery;
+        Debug.Log("Battery: " + currentBattery);
+    }
+
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         float dischargeAmount = isDischarging ? Time.deltaTime * batteryDischargeRate : 0;
         float chargeAmount = isCharging ? Time.deltaTime * batteryChargeRate : 0;
         float newCharge = currentBattery + chargeAmount - dischargeAmount;
         currentBattery = Mathf.Clamp(newCharge, 0, maxBattery);
-
-        // Debug.Log("Battery: " + currentBattery);
+        GlobalState.currentBattery = currentBattery;
     }
 
     public void setDischarging(bool isDischarging) {
@@ -40,20 +40,6 @@ public class BatteryController : MonoBehaviour
         return System.Math.Abs(currentBattery) < isEmptyBuffer;
     }
 
-    public void TakeDamage(GameObject enemy, float damage) {
-        //if (collision.gameObject.tag == "Enemy") {
-        //    Vector2 closestPosition = collision.collider.ClosestPoint(transform.position);
-        //    Vector2 pushVector = new Vector2(transform.position.x, transform.position.y) - closestPosition;
-        //    collision.rigidbody.AddForce(pushVector.normalized * pushBackForce);
-
-        //    if (!isInvulnerable) {
-        //        EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
-        //        enemy.GiveDamage(this);
-        //        StartCoroutine(BeginInvulnerability());
-        //    }
-        //}   
-    }
-
     public void TakeDamage(float damage) {
         currentBattery -= damage;
         Debug.Log("Player taking dmg");
@@ -64,11 +50,5 @@ public class BatteryController : MonoBehaviour
 
     private void Die() {
         gameObject.GetComponent<PlatformerCharacter2D>().animateDeath();
-    }
-
-    private IEnumerator BeginInvulnerability() {
-        isInvulnerable = true;
-        yield return new WaitForSeconds(invulnPeriod);
-        isInvulnerable = false;
     }
 }

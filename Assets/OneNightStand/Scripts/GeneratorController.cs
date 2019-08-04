@@ -5,6 +5,7 @@ using UnityEngine;
 public class GeneratorController : MonoBehaviour
 {
     [SerializeField] private float fullCharge = 25f;
+    [SerializeField] private int id = 0;
     private float chargeAmount = 0f;
 
     private Sprite activeSprite;
@@ -26,6 +27,12 @@ public class GeneratorController : MonoBehaviour
         g2 = Resources.Load<Sprite>(assetPath + "generator2");
         g3 = Resources.Load<Sprite>(assetPath + "generator3");
         g4 = Resources.Load<Sprite>(assetPath + "generator4");
+
+        bool completed = GlobalState.generators[id];
+        if (completed) {
+            chargeAmount = fullCharge;
+            activeSprite = g4;
+        }
     }
 
     // Update is called once per frame
@@ -37,7 +44,7 @@ public class GeneratorController : MonoBehaviour
     }
 
     public void Charge(float chargeAmountDelta) {
-        if (chargeAmount > fullCharge) {
+        if (chargeAmount >= fullCharge) {
             return;
         }
         chargeAmount += chargeAmountDelta;
@@ -47,8 +54,9 @@ public class GeneratorController : MonoBehaviour
             activeSprite = g1;
         } else if (chargeAmount < 16) {
             activeSprite = g2;
-        } else if (chargeAmount > fullCharge){
+        } else if (chargeAmount >= fullCharge){
             activeSprite = g3;
+            GlobalState.generators[id] = true;
             StartCoroutine(UpdateGenerator());
         }
     }
