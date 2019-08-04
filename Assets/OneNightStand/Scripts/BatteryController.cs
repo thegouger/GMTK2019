@@ -22,6 +22,7 @@ public class BatteryController : MonoBehaviour
         currentBattery = GlobalState.currentBattery;
         Debug.Log("Battery: " + currentBattery);
         hasDied = false;
+        transform.Find("audioComp").GetComponent<AudioListener>().transform.right = -transform.Find("audioComp").GetComponent<AudioListener>().transform.right;
     }
 
     // Update is called once per frame
