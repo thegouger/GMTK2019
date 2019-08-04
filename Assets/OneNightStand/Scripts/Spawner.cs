@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
     }
 
     private void Spawn() {
-        GameObject critter = Random.value > 0.5 ? Instantiate(rat, transform) : Instantiate(hammond, transform);
+        GameObject critter = Random.value > 0.5 ? Instantiate(rat, transform.position, Quaternion.identity) : Instantiate(hammond, transform.position, Quaternion.identity);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         critter.GetComponent<Pathfinding.AIDestinationSetter>().target = player.transform;
         critter.GetComponent<EnemyController>().player = player;
