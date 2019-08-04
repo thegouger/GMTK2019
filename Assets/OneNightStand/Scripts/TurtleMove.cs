@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurtleMove : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    public float speed = 10f;
     [SerializeField] private float newDirectionDelay = 3f;
 
     private Vector2 direction = Vector2.zero;

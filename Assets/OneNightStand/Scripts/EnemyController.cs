@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
     public void Damage(float dmg) {
         health -= dmg;
-        if (health <= 0) {
+        if (health <= 0 && !isDead) {
             Die();
         }
     }
@@ -46,7 +46,27 @@ public class EnemyController : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        GetComponent<Pathfinding.AIPath>().canMove = false;
+
+
+        var aiPath = GetComponent<Pathfinding.AIPath>();
+        if(aiPath)
+            aiPath.canMove = false;
+        
+        var turtleMove = GetComponent<TurtleMove>();
+        if(turtleMove)
+        {
+            turtleMove.speed = 0.0f;
+        }
+
+        var rgdb = GetComponent<Rigidbody2D>();
+        if(rgdb)
+        {
+            Destroy(rgdb);
+        }
+
+        var center = transform.Find("Center");
+        center.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+
         GetComponent<Animator>().SetBool("isDead", true);
     }
 }
