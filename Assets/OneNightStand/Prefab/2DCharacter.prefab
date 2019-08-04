@@ -573,7 +573,7 @@ MonoBehaviour:
   attachedLight: {fileID: 971536128}
   maxSpotAngle: 180
   minSpotAngle: 20
-  spotAngleChangeRate: 90
+  spotAngleChangeRate: 120
   rayConeSteps: 10
   rayDist: 30
   dmgRatePerRay: 3

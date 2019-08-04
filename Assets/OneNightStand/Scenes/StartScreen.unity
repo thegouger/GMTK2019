@@ -621,7 +621,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1819800102}
+  - {fileID: 1648687389}
   - {fileID: 1809761520}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -726,6 +726,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!224 &1648687389 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6653382570252196572, guid: 9bc697633b60141d780638bd2bf5cea4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6985459434944358691}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1809761519
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,12 +770,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1534, y: 863}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &1819800102 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6985459433400015621, guid: 9bc697633b60141d780638bd2bf5cea4,
-    type: 3}
-  m_PrefabInstance: {fileID: 6985459434944358691}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2017103515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,5 +1024,20 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1147782457}
+    - target: {fileID: 6653382569208707511, guid: 9bc697633b60141d780638bd2bf5cea4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1147782457}
+    - target: {fileID: 6653382569208707511, guid: 9bc697633b60141d780638bd2bf5cea4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMenuReturnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591071321196031076, guid: 9bc697633b60141d780638bd2bf5cea4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bc697633b60141d780638bd2bf5cea4, type: 3}
