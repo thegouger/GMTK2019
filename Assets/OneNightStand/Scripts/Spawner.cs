@@ -13,12 +13,12 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DelaySpawn(delay);
+        StartCoroutine(DelaySpawn(delay));
         SpawnCheck();
     }
 
     private IEnumerator DelaySpawn(float wait) {
-        yield return new WaitForSeconds(Random.value * wait);
+        yield return new WaitForSeconds(Random.value * wait + delay);
     }
 
     private void SpawnCheck() {
@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
     }
 
     private void Spawn() {
-        GameObject critter = Random.value > 0.5 ? Instantiate(rat) : Instantiate(hammond);
+        GameObject critter = Random.value > 0.5 ? Instantiate(rat, transform) : Instantiate(hammond, transform);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         critter.GetComponent<Pathfinding.AIDestinationSetter>().target = player.transform;
         critter.GetComponent<EnemyController>().player = player;
