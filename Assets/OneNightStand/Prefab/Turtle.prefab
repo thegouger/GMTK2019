@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 400
-  damageRate: 5
+  damageRate: 25
   damageRadius: 10
   player: {fileID: 0}
 --- !u!114 &242965911736463089

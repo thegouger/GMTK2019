@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneratorController : MonoBehaviour
 {
-    [SerializeField] private float fullCharge = 25f;
+    [SerializeField] private float fullCharge;
     [SerializeField] private int id = 0;
     private float chargeAmount = 0f;
 
@@ -50,9 +50,9 @@ public class GeneratorController : MonoBehaviour
         chargeAmount += chargeAmountDelta;
         if (chargeAmount < 0.1) {
             activeSprite = g0;
-        } else if (chargeAmount < 8) {
+        } else if (chargeAmount < fullCharge * 0.33) {
             activeSprite = g1;
-        } else if (chargeAmount < 16) {
+        } else if (chargeAmount < fullCharge * 0.67) {
             activeSprite = g2;
         } else if (chargeAmount >= fullCharge){
             activeSprite = g3;

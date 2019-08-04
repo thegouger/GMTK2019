@@ -210,7 +210,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 10
+  maxSpeed: 20
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -273,8 +273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 567808faf0b60477bbaf899a431a4628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  damageRate: 10
+  health: 60
+  damageRate: 8
   damageRadius: 5
   player: {fileID: 0}
 --- !u!114 &3368251455960484302
