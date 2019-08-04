@@ -7,6 +7,7 @@ TagManager:
   - Fire
   - Enemy
   - MoveableObject
+  - Generator
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Ground
   - 
   - Obstacles
-  - 
+  - Generator
   - 
   - 
   - Player

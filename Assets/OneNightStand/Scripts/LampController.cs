@@ -104,7 +104,10 @@ public class LampController : MonoBehaviour
             {
                 // do damage to enemy here
                 var enemyController = hit.collider.transform.parent.gameObject.GetComponent<EnemyController>();
-                enemyController.Damage(dmgRatePerRay*Time.deltaTime);
+                enemyController.Damage(dmgRatePerRay * Time.deltaTime);
+            } else if (hit.collider.tag == "Generator") {
+                var generatorController = hit.collider.gameObject.GetComponent<GeneratorController>();
+                generatorController.Charge(dmgRatePerRay * Time.deltaTime);
             }
         }
         
