@@ -36,6 +36,10 @@ public class worldExit : MonoBehaviour
     {
         Debug.Log("Win");
         // Game over - we won!
-        Application.LoadLevel(endGameScene);
+        if(col.gameObject.tag == "Player")
+        {
+            Application.LoadLevel(endGameScene);
+        }
+        
     }
 }
