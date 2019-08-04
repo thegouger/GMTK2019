@@ -67,7 +67,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -679641469
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: b2642cd734cb6374a98a1cd06018aa34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -90,6 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 509985885}
   - component: {fileID: 509985884}
+  - component: {fileID: 2773882768369957954}
   m_Layer: 18
   m_Name: deskClutter
   m_TagString: Untagged
@@ -147,7 +148,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -679641469
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: a5e949d9bd4b702498fcd1191703b946, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -160,6 +161,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2773882768369957954
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509985883}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f2a39013e425197489ac62409141f162, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &971536126
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +339,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -679641469
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: bce09020dc51aab45a3c6f0eb0d5ef91, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -413,7 +433,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -679641469
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f3eee7f0be3744578a8b657c1bfb825f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -480,7 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MaxSpeed: 13
   lamp: {fileID: 8328428816624159096}
-  deskClutter: {fileID: 0}
+  deskClutter: {fileID: 509985883}
 --- !u!114 &5559547984204975487
 MonoBehaviour:
   m_ObjectHideFlags: 0
