@@ -1,12 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class UIClickHandler : MonoBehaviour
 {
 
+    public void Update() {
+        if (CrossPlatformInputManager.GetButtonDown("Cancel")) {
+            GameObject controlsImg = transform.Find("ControlsImage").gameObject;
+            controlsImg.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+
+    public void OnUnpause() {
+        GameObject controlsImg = transform.Find("ControlsImage").gameObject;
+        controlsImg.SetActive(false);
+        Time.timeScale = 1;
+    }
+
     public void OnGameStartClick() {
-        Debug.Log("Game start");
         SceneManager.LoadScene("Bedroom", LoadSceneMode.Single);
         GlobalState.Reset();
     }
