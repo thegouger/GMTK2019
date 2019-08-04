@@ -12,7 +12,7 @@ public class LampController : MonoBehaviour
 
     public Light attachedLight;
     private float spotAngle = 0.0f;
-    [SerializeField] private float maxSpotAngle = 60.0f;
+    [SerializeField] private float maxSpotAngle = 125.0f;
     [SerializeField] private float minSpotAngle = 20.0f;
     [SerializeField] private float spotAngleChangeRate = 15.0f; // deg / s
 
@@ -30,7 +30,7 @@ public class LampController : MonoBehaviour
 
         spotAngle = (maxSpotAngle + minSpotAngle) / 2.0f;
         attachedLight.spotAngle = spotAngle;
-        attachedLight.range = rayDist;
+        //attachedLight.range = rayDist;
     }
 
     // Update is called once per frame
@@ -39,7 +39,8 @@ public class LampController : MonoBehaviour
         float focus = CrossPlatformInputManager.GetAxisRaw("Fire1");
         float expand = CrossPlatformInputManager.GetAxisRaw("Fire2");
         bool lit = CrossPlatformInputManager.GetButtonDown("Jump");
-        if (lit && lit != litWasPressed) {
+
+        if (lit && lit != litWasPressed && gameObject.GetComponent<BatteryController>().currentBattery > 5.0f) {
             isLit = batteryController.toggle();
         }
         litWasPressed = lit;
@@ -64,8 +65,9 @@ public class LampController : MonoBehaviour
     }
 
     private void Shine(int focus) {
-        attachedLight.enabled = isLit;
-        if(isLit) {
+        bool shouldCast = isLit && gameObject.GetComponent<BatteryController>().currentBattery > 5.0f;
+        attachedLight.enabled = shouldCast;
+        if(shouldCast) {
             CastLightRays();
         }
     }
