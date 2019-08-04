@@ -26,13 +26,15 @@ public class worldExit : MonoBehaviour
 
         if(allGeneratorsOn)
         {
+            Debug.Log("Win");
             gameObject.GetComponent<SpriteRenderer>().sprite = openDoors;
             gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         }
     }
 
-    void onTriggerEntered2D()
+    void OnTriggerEnter2D(Collider2D col)
     {
+        Debug.Log("Win");
         // Game over - we won!
         Application.LoadLevel(endGameScene);
     }
