@@ -28,6 +28,7 @@ public class LampController : MonoBehaviour
         batteryController.setDischarging(false);
 
         spotAngle = (maxSpotAngle + minSpotAngle) / 2.0f;
+        attachedLight.spotAngle = spotAngle;
         attachedLight.range = rayDist;
     }
 
@@ -101,7 +102,7 @@ public class LampController : MonoBehaviour
         {
             if(hit.collider.tag == "Enemy")
             {
-                // do damage here
+                // do damage to enemy here
                 var enemyController = hit.collider.transform.parent.gameObject.GetComponent<EnemyController>();
                 enemyController.Damage(dmgRatePerRay*Time.deltaTime);
             }

@@ -24,7 +24,7 @@ public class PlatformerCharacter2D : MonoBehaviour
     {
     }
 
-    private void animateDeath()
+    public void animateDeath()
     {
         m_Anim.SetBool("isDead", true);
         deskClutter.GetComponent<Animator>().SetBool("isDead", true);

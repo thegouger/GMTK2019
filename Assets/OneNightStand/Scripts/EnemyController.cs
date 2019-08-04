@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] internal float health = 1000;
-    [SerializeField] internal float damage = 10;
+    [SerializeField] internal float damageRate = 10;
 
     public GameObject player;
 
@@ -37,7 +37,8 @@ public class EnemyController : MonoBehaviour
     public void GiveDamage(BatteryController controller) {
         if(!isDead)
         {
-            controller.TakeDamage(damage);
+            // Give damage to player's BatteryController 
+            controller.TakeDamage(damageRate*Time.deltaTime);
         }
     }
 

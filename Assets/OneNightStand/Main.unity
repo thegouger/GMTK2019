@@ -1902,7 +1902,7 @@ PrefabInstance:
     - target: {fileID: 8079465836454723036, guid: 4ba11e9edbc5b37499f7628774142a80,
         type: 3}
       propertyPath: health
-      value: 200
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 108731459371439432, guid: 4ba11e9edbc5b37499f7628774142a80,
         type: 3}
@@ -2236,6 +2236,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5559547984204975486, guid: f012a5d1cf284427d872a8ceceff3e9a,
+        type: 3}
+      propertyPath: deskClutter
+      value: 
+      objectReference: {fileID: 608792592}
     - target: {fileID: 5559547984204975473, guid: f012a5d1cf284427d872a8ceceff3e9a,
         type: 3}
       propertyPath: attachedLight

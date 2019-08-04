@@ -56,13 +56,14 @@ public class BatteryController : MonoBehaviour
 
     public void TakeDamage(float damage) {
         currentBattery -= damage;
+        Debug.Log("Player taking dmg");
         if (currentBattery <= 0) {
             Die();
         }
     }
 
     private void Die() {
-        // TODO: Death animation and death state.
+        gameObject.GetComponent<PlatformerCharacter2D>().animateDeath();
     }
 
     private IEnumerator BeginInvulnerability() {
