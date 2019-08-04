@@ -57,6 +57,8 @@ public class BatteryController : MonoBehaviour
     private void Die() {
         gameObject.GetComponent<PlatformerCharacter2D>().animateDeath();
 
+        GlobalState.Reset();
+        currentBattery = 100f;
         // Pause game
         Time.timeScale = 0;
 

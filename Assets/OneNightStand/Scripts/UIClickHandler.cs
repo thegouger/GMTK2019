@@ -8,7 +8,6 @@ public class UIClickHandler : MonoBehaviour
     public void OnGameStartClick() {
         Debug.Log("Game start");
         SceneManager.LoadScene("Bedroom", LoadSceneMode.Single);
-        GlobalState.Reset();
     }
 
     public void OnControlsClick() {
