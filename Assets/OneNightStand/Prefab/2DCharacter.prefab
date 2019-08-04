@@ -554,9 +554,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBattery: 100
-  currentBattery: 50
-  batteryDischargeRate: 2
-  batteryChargeRate: 10
+  currentBattery: 100
+  batteryDischargeRate: 4
+  batteryChargeRate: 15
   deathOverlay: {fileID: 0}
 --- !u!114 &5559547984204975473
 MonoBehaviour:
@@ -576,10 +576,10 @@ MonoBehaviour:
   spotAngleChangeRate: 90
   rayConeSteps: 10
   rayDist: 30
-  dmgRatePerRay: 1
+  dmgRatePerRay: 3
   includeInRaycastMask:
     serializedVersion: 2
-    m_Bits: 524288
+    m_Bits: 573440
 --- !u!70 &1781865807114070353
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -8,8 +8,8 @@ public class BatteryController : MonoBehaviour
     [SerializeField] private float maxBattery = 100f;
     public float currentBattery;
 
-    [SerializeField] private float batteryDischargeRate = 2f;
-    [SerializeField] private float batteryChargeRate = 10f;
+    [SerializeField] private float batteryDischargeRate = 4f;
+    [SerializeField] private float batteryChargeRate = 15f;
     [SerializeField] private GameObject deathOverlay; 
 
     private bool isCharging = false;

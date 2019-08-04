@@ -18693,19 +18693,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5559547984204975484, guid: f012a5d1cf284427d872a8ceceff3e9a,
         type: 3}
-      propertyPath: currentBattery
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5559547984204975484, guid: f012a5d1cf284427d872a8ceceff3e9a,
-        type: 3}
       propertyPath: deathOverlay
       value: 
       objectReference: {fileID: 370114519}
-    - target: {fileID: 5559547984204975473, guid: f012a5d1cf284427d872a8ceceff3e9a,
-        type: 3}
-      propertyPath: includeInRaycastMask.m_Bits
-      value: 573440
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f012a5d1cf284427d872a8ceceff3e9a, type: 3}
 --- !u!4 &703599963 stripped

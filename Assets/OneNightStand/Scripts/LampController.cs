@@ -21,6 +21,7 @@ public class LampController : MonoBehaviour
     [SerializeField] private float dmgRatePerRay = 1.0f;
 
     public LayerMask includeInRaycastMask;
+    private bool litWasPressed = false;
 
     void Start()
     {
@@ -33,14 +34,15 @@ public class LampController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         float focus = CrossPlatformInputManager.GetAxisRaw("Fire1");
         float expand = CrossPlatformInputManager.GetAxisRaw("Fire2");
         bool lit = CrossPlatformInputManager.GetButtonDown("Jump");
-        if (lit) {
+        if (lit && lit != litWasPressed) {
             isLit = batteryController.toggle();
         }
+        litWasPressed = lit;
 
         int focusing = 0;
         if (Math.Abs(focus) > m_InputBufferLimit) {
