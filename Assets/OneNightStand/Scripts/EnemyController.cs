@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
     public float health = 1000;
     [SerializeField] internal float damageRate = 10;
 
+    [SerializeField] internal float damageRadius = 5;
+
     public GameObject player;
 
     private bool isDead = false;
@@ -19,7 +21,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         var center = transform.Find("Center");
-        if((player.transform.position - center.transform.position).magnitude < 5)
+        if((player.transform.position - center.transform.position).magnitude < damageRadius)
         {
             //Debug.Log("Damaging player");
             var batteryController = player.GetComponent<BatteryController>();
