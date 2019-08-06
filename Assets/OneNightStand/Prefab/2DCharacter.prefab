@@ -571,7 +571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedLight: {fileID: 971536128}
-  maxSpotAngle: 180
+  maxSpotAngle: 125
   minSpotAngle: 20
   spotAngleChangeRate: 120
   rayConeSteps: 10
